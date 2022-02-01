@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Abs Token ICO Sale</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--<script type="text/javascript" src="./dist/truffle-contract.min.js"></script>-->
+  </head>
+  <body>
+    <div class="container" style="width: 650px;">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="text-center"><span class="abs-name"></span>&nbsp;ICO</h1>
+                <hr/>
+                <br/>
+            </div>
+            <div id="loader">
+                <p class="text-center">Loading...</p>
+            </div>
+            <div id="content" class="text-center" style="display: none;">
+                <p>
+                    Présentation de <span class="abs-name"></span>&nbsp; (<span class="abs-symbol"></span>)!
+                    <br/>
+                    Le prix du Token est <span class="token-price"></span> Ether la pièce. Vous avez actuellement <span class="abs-balance"></span>&nbsp;<span class="abs-symbol"></span>&nbsp;.
+                </p>
+                <br/>
+                <form onSubmit="App.buyTokens(); return false;" role="form">
+                    <div class="form-group">
+                    <div class="input-group">
+                        <input id="numberOfTokens" class="form-control input-lg" type="number" name="number" value="100" min="100" max="900000" pattern="[0-10000]"><!---->
+                        </input>
+                        <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary btn-lg">Buy Tokens</button>
+                        </span>
+                    </div>
+                    </div>
+                </form>
+                <br>
+                <div class="progress">
+                    <div id="progress" class="progress-bar progress-bar-striped active" aria-valuemin="0" aria-valuemax="100">
+                    </div>
+                </div>
+            <p><span class="tokens-sold">&nbsp;jetons</span><span class="abs-symbol"></span>&nbsp;sur <span class="abs-totalSupply"></span> en circulation.</p>
+            <hr>
+            <p id="tokenAddress"></p><br/>
+            <p id="accountAddress"></p>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
