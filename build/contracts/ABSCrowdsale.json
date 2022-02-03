@@ -685,16 +685,15 @@
     "version": "0.5.17+commit.d19bba13.Emscripten.clang"
   },
   "networks": {
-    "97": {
+    "56": {
       "events": {},
       "links": {},
-      "address": "0xd29EFfEBA8749515013ab8c5561a875859F9D886",
-      "transactionHash": "0x9a2006524b3a679393cbe6a688a31cb4c602d87ae831321c67b7ef414b418e6a"
+      "address": "0x1CfAB40150130D0A5732E994A74Cc19bDD19B882",
+      "transactionHash": "0x25525474df2948ca3a61c65069049b10a35ee6591ab999726df0edaeb19f368d"
     }
   },
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-01-28T08:05:08.423Z",
-  "networkType": "ethereum",
+  "updatedAt": "2022-02-02T17:45:39.464Z",
   "devdoc": {
     "methods": {
       "buyTokens(address)": {

@@ -19,9 +19,13 @@
  */
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const bscTest = "https://data-seed-prebsc-1-s1.binance.org:8545/";
+//const bscTest = "https://data-seed-prebsc-1-s1.binance.org:8545/";
+const bscMain = "https://bsc-dataseed1.binance.org";
 const fs = require('fs');
 const mnemonic = fs.readFileSync(".secret").toString().trim();
+//ganache account seed phrase 
+//const mnemonictest = fs.readFileSync("test.secret").toString().trim();
+
 
 module.exports = {
     /**
@@ -67,15 +71,23 @@ module.exports = {
         // },
         // Useful for private networks
         bscTestnet: {
-            provider: () => new HDWalletProvider(mnemonic, bscTest),
+            provider: () => new HDWalletProvider(mnemonictest, bscTest),
             network_id: 97, // This network is yours, in the cloud.
             production: true // Treats this network as if it was a public net. (default: false)
+        },
+        //for bsc network
+        bscMainnet: {
+            provider: () => new HDWalletProvider(mnemonic, bscMain),
+            network_id: 56,
+            confirmations: 10,
+            timeoutBlocks: 200,
+            skipDryRun: true
         }
     },
 
     // Set default mocha options here, use special reporters etc.
     mocha: {
-         timeout: 100000
+        //timeout: 100000
     },
 
     // Configure your compilers
