@@ -4,6 +4,7 @@ App = {
     account: '0x0',
     tokAddress: '0x0',
     loading: false,
+    web3Connect: false,
     tokenPrice: 0,
     tokensSold: 0,
     totalSupply: 0,
@@ -81,10 +82,12 @@ App = {
 
         var loader = $('#loader');
         var loader2 = $('#loader2');
+        var loader3 = $('#loader3');
         var content = $('#content');
 
         loader.show();
         loader2.hide();
+        loader3.hide();
         content.hide();
 
         // Load account data
@@ -157,7 +160,21 @@ App = {
                 App.loading = false;
                 loader.hide();
                 loader2.hide();
+                loader3.hide();
                 content.show();
+            }).catch(e => {
+                if (!App.web3Connect) {
+                    window.alert("Aucun Metamask Connecté. Ce site est un site d'achat de jetons - pour continuer, vous devez connecter votre wallet Metamask à ce site");
+                    App.web3Connect = true;
+                    $('#loader').hide();
+                    $('#loader3').show();
+                } else {
+                    $('#loader3').show();
+                    $('#content').hide();
+                    $('#loader').hide();
+                    $('#loader2').hide();
+                }
+
             })
         });
     },
@@ -165,6 +182,7 @@ App = {
     buyTokens: function() {
         $('#content').hide();
         $('#loader').hide();
+        $('#loader3').hide();
         $('#loader2').show();
         var numberOfTokens = $('#numberOfTokens').val();
         console.log("Amount of Tokens bought...", numberOfTokens)
